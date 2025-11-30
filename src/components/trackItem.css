@@ -1,0 +1,31 @@
+.track-item {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #2b2b2b;
+}
+
+.track-img {
+    width: 50px;
+    border-radius: 6px;
+    margin-right: 12px;
+}
+
+.track-info {
+    flex: 1;
+}
+
+.track-title {
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.track-artist {
+    color: #b3b3b3;
+    font-size: 12px;
+}
+
+.audio-control {
+    width: 100px;
+}
