@@ -1,0 +1,381 @@
+/* src/components/Player/Player.css */
+
+.player {
+    height: 90px;
+    background: linear-gradient(to bottom, #181818, #000000);
+    border-top: 1px solid #282828;
+    padding: 0 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    z-index: 100;
+}
+
+/* Left Section - Track Info */
+.player-track-info {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    width: 30%;
+    min-width: 180px;
+}
+
+.player-album-art {
+    width: 56px;
+    height: 56px;
+    border-radius: 4px;
+    object-fit: cover;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.player-track-details {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.player-track-name {
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    cursor: pointer;
+}
+
+.player-track-name:hover {
+    text-decoration: underline;
+}
+
+.player-track-artist {
+    color: #b3b3b3;
+    font-size: 11px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    cursor: pointer;
+}
+
+.player-track-artist:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+.player-like-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+}
+
+.player-like-btn:hover {
+    transform: scale(1.1);
+}
+
+.player-like-btn .player-icon {
+    width: 16px;
+    height: 16px;
+    color: #b3b3b3;
+    transition: color 0.2s ease;
+}
+
+.player-like-btn:hover .player-icon {
+    color: #ffffff;
+}
+
+.player-like-btn .player-icon.liked {
+    color: #1db954;
+}
+
+/* Center Section - Controls */
+.player-controls-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 40%;
+    max-width: 722px;
+}
+
+.player-buttons {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 8px;
+}
+
+.player-control-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #b3b3b3;
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+.player-control-btn:hover {
+    color: #ffffff;
+    transform: scale(1.05);
+}
+
+.player-control-btn.active {
+    color: #1db954;
+}
+
+.player-control-btn.active::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 4px;
+    background: #1db954;
+    border-radius: 50%;
+}
+
+.player-icon-small {
+    width: 16px;
+    height: 16px;
+}
+
+.player-icon {
+    width: 20px;
+    height: 20px;
+}
+
+.player-play-btn {
+    background: #ffffff;
+    border: none;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: #000000;
+}
+
+.player-play-btn:hover {
+    transform: scale(1.06);
+    background: #f0f0f0;
+}
+
+.player-play-btn:active {
+    transform: scale(1);
+}
+
+.player-icon-play {
+    width: 16px;
+    height: 16px;
+}
+
+.repeat-one-indicator {
+    position: absolute;
+    top: -2px;
+    right: -4px;
+    font-size: 8px;
+    font-weight: bold;
+    color: #1db954;
+}
+
+/* Progress Bar */
+.player-progress-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+}
+
+.player-time {
+    color: #b3b3b3;
+    font-size: 11px;
+    font-weight: 400;
+    min-width: 40px;
+    text-align: center;
+}
+
+.player-progress-bar {
+    flex: 1;
+    height: 12px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+    padding: 4px 0;
+}
+
+.player-progress-bar::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    background: #4d4d4d;
+    border-radius: 2px;
+}
+
+.player-progress-fill {
+    position: relative;
+    height: 4px;
+    background: #ffffff;
+    border-radius: 2px;
+    transition: background 0.2s ease;
+    z-index: 2;
+}
+
+.player-progress-bar:hover .player-progress-fill {
+    background: #1db954;
+}
+
+.player-progress-handle {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translate(50%, -50%);
+    width: 12px;
+    height: 12px;
+    background: #ffffff;
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.player-progress-bar:hover .player-progress-handle {
+    opacity: 1;
+}
+
+/* Right Section - Volume Controls */
+.player-right-controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 30%;
+    min-width: 180px;
+    justify-content: flex-end;
+}
+
+.player-extra-btn {
+    display: none;
+}
+
+.player-volume-bar {
+    width: 93px;
+    height: 12px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+    padding: 4px 0;
+}
+
+.player-volume-bar::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    background: #4d4d4d;
+    border-radius: 2px;
+}
+
+.player-volume-fill {
+    position: relative;
+    height: 4px;
+    background: #ffffff;
+    border-radius: 2px;
+    transition: background 0.2s ease;
+    z-index: 2;
+}
+
+.player-volume-bar:hover .player-volume-fill {
+    background: #1db954;
+}
+
+.player-volume-handle {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translate(50%, -50%);
+    width: 12px;
+    height: 12px;
+    background: #ffffff;
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.player-volume-bar:hover .player-volume-handle {
+    opacity: 1;
+}
+
+/* Responsive Design */
+@media (min-width: 1024px) {
+    .player-extra-btn {
+        display: flex;
+    }
+}
+
+@media (max-width: 768px) {
+    .player {
+        padding: 0 12px;
+    }
+
+    .player-track-info {
+        width: 35%;
+        min-width: 0;
+    }
+
+    .player-controls-center {
+        width: 35%;
+    }
+
+    .player-right-controls {
+        width: 30%;
+        min-width: 0;
+    }
+
+    .player-volume-bar {
+        display: none;
+    }
+
+    .player-track-details {
+        display: none;
+    }
+
+    .player-buttons {
+        gap: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .player-track-info {
+        width: 25%;
+    }
+
+    .player-controls-center {
+        width: 50%;
+    }
+
+    .player-right-controls {
+        width: 25%;
+    }
+
+    .player-like-btn {
+        display: none;
+    }
+}
